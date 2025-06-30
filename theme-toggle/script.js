@@ -35,24 +35,23 @@ document.addEventListener('DOMContentLoaded', () => {
     quoteEl.textContent = 'Loading...';
     authorEl.textContent = '';
 
-    fetch('https://api.quotable.io/random')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
-        quoteEl.textContent = `"${data.content}"`;
-        authorEl.textContent = `— ${data.author}`;
-      })
-      .catch(error => {
-        quoteEl.textContent = 'Oops, something went wrong. Please try again.';
-        authorEl.textContent = '';
-        console.error('Fetch error:', error);
-      });
-  });
-});
+   let response = fetch("https://zenquotes.io/api/today",
+    {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }
+   );
+
+   console.log(response);
+  }
+  )
+
+
+
+}
+);
 // ==== Starry Night Canvas Background ====
 
 const canvas = document.createElement('canvas');
@@ -153,9 +152,6 @@ function animateStars() {
 }
 animateStars();
 
-// Update canvas size on window resize
-window.addEventListener('resize', () => {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  initStars();
-});
+
+
+
