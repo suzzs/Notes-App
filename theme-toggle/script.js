@@ -1,5 +1,5 @@
 // Wait for DOM to load
-document.addEventListener('DOMContentLoaded', () => {
+/*document.addEventListener('DOMContentLoaded', () => {
   const body = document.body;
   const themeToggleBtn = document.getElementById('theme-toggle');
   const usernameInput = document.getElementById('username');
@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const getQuoteBtn = document.getElementById('get-quote');
   const quoteEl = document.getElementById('quote');
   const authorEl = document.getElementById('author');
+});
 
   // Theme toggle handler
   themeToggleBtn.addEventListener('click', () => {
@@ -31,27 +32,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Fetch and display quote
-  getQuoteBtn.addEventListener('click', () => {
-    quoteEl.textContent = 'Loading...';
-    authorEl.textContent = '';
-
-   let response = fetch("https://zenquotes.io/api/today",
-    {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      }
-    }
-   );
-
-   console.log(response);
+  async function fetchhData(){
+    let response = " "
   }
-  )
 
-
-
-}
-);
 // ==== Starry Night Canvas Background ====
 
 const canvas = document.createElement('canvas');
@@ -151,7 +135,7 @@ function animateStars() {
   requestAnimationFrame(animateStars);
 }
 animateStars();
-
+*/
 
 
 
