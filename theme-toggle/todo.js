@@ -7,3 +7,4 @@ list=input.innerHTML;
 console.log(input.innerHTML);
 });
 console.log(list);
+console.log(button);
