@@ -70,6 +70,7 @@ body{
   color: var(--accent);
   text-align: center;
   user-select: none;
+  
 }
 
 .menu-item:hover{
@@ -80,11 +81,20 @@ body{
 .main-content{
   flex: 1;
   padding: 40px;
-  background-color: white;
+  background-color: peachpuff;
   display:flex;
   flex-direction: column;
   align-items: center;
   overflow-y:auto;
+}
+
+.main-content h1{
+  font-family:'Dancing Script', cursive;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  padding: 25px;
+  text-align: center;
 }
 
 #section-to-do p{
@@ -140,6 +150,7 @@ background-color: var(--button-hover);
   border-radius: 6px;
   transition: background-color 0.3s;
   color: var(--accent);
+ 
 }
 
 #list li:hover{

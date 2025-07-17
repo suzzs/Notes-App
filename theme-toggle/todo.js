@@ -62,3 +62,9 @@ list.removeChild(div);
     localStorage.setItem("tasks", JSON.stringify(tasks));
  });
  });
+
+ const toggleButton = document.getElementById("toggle-btn")
+ const mainContent = document.getElementById("main-content");
+ toggleButton.addEventListener("click",()=>{
+  mainContent.classList.toggle("hidden");
+ });
