@@ -1,35 +1,3 @@
-<!--<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css" />
-<title>STARRY NIGHTS</title>
-</head>
-<body>
-<header>
-    <h1>STARRY NIGHTS</h1>
-    <p>Explore the stars,change the mood ,and receive wisdom from the universe</p>
-</header>
-<main>
-    <button id="theme-toggle">Toggle</button>
-    <div class ="name-input">
-        <label for="username">Enter your name:</label>
-        <input type="text" id="username" placeholder="Your name" />
-      <p id="greeting"></p>
-    </div>
-
-    <section  class="quote-section">
-        <button id="get-quote">Show Me light</button>
-         <blockquote id="quote">Your inspirational quote will appear here.</blockquote>
-      <cite id="author"></cite>
-    </section>
-</main>
-  <div id="star-container"></div>
-  <script src="script.js"></script>
-</body>
-</html>-->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,14 +5,37 @@
  <link rel ="stylesheet" href ="style.css">
 </head>
 <body>
-  <h1 id = "heading">To-Do List</h1>
+  <div class="app-container">
+    <aside class="sidebar">
+      <ul class="menu">
+        <li class ="menu-item" data-section="TO-DO">TO-DO</li>
+        <li class="menu-item" data-section="calendar">Calendar</li>
+        <li class="menu-item" data-section="reminders">Reminder</li>
+        <li class="menu-item" data-section="Notes">Notes</li>
+        <li class="menu-item" data-section="pomodoro">Pomodoro</li>
+      </ul>
+    </aside>
+
+    <main class ="main-content" id="main-content">
+    <section id="section-to-do" class="section">
+        <h1>To-Do List</h1>
+        <p>Insert the list of things that has to be done today!!</p>
+        <input type="text" id="input" placeholder="Type Here...">
+        <button id="button" type="button">Insert</button>
+        <ol id="list"></ol>
+      </section>
+
+    </main>
+  </div>
+
+ <!-- <h1 id = "heading">To-Do List</h1>
 <div>
   <p>Insert the list of things that has to be done today!!</p>
 </div>
 <input type="text" id="input" placeholder="Type Here...">
 <button id ="button" type ="button">Insert</button>
 <div><ol id="list"></ol>
-</div>
+</div>-->
 <script src="todo.js" ></script>
 </body>
 </html>
