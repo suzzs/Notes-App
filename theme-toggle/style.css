@@ -1,161 +1,97 @@
-/*body{
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f0f4f8;
-  color: #222;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-  transition: background-color 0.5s ease, color 0.5s ease;
-}
-
-header {
-  text-align: center;
-  margin: 2rem 1rem;
-}
-
-h1 {
-  font-size: 3rem;
-  margin-bottom: 0.3rem;
-  color: #3a3a3a;
-}
-
-p {
-  font-size: 1.2rem;
-  color: #555;
-}
-
-main {
-  width: 90%;
-  max-width: 600px;
-  text-align: center;
-}
-
-button {
-  background-color: #6c63ff;
-  color: white;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  font-size: 1rem;
-  border-radius: 25px;
-  cursor: pointer;
-  margin: 0.7rem;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #574fd6;
-}
-
-input[type="text"] {
-  padding: 0.5rem 0.8rem;
-  border-radius: 20px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-  width: 60%;
-  margin-top: 0.5rem;
-}
-
-.name-input {
-  margin: 1.5rem 0;
-}
-
-.quote-section {
-  margin-top: 2rem;
-}
-
-blockquote {
-  font-style: italic;
-  font-size: 1.2rem;
-  color: #444;
-  margin-top: 1rem;
-}
-
-cite {
-  display: block;
-  margin-top: 0.3rem;
-  font-size: 1rem;
-  color: #666;
-}*/
-
-/* Dark mode styles */
-/*body.dark-mode {
-  background: #121212;
-  color: #eee;
-}
-
-body.dark-mode h1 {
-  color: #dcdcdc;
-}
-
-body.dark-mode p,
-body.dark-mode blockquote,
-body.dark-mode cite {
-  color: #bbb;
-}
-
-body.dark-mode input[type="text"] {
-  background-color: #333;
-  border: 1px solid #555;
-  color: #eee;
-}
-
-body.dark-mode button {
-  background-color: #9c86ff;
-  color: #121212;
-}
-
-body.dark-mode button:hover {
-  background-color: #b5a1ff;
-}
-
-/* Smooth transitions for color & bg */
-/*button,
-input,
-body,
-h1,
-p,
-blockquote,
-cite {
-  transition: background-color 0.5s ease, color 0.5s ease;
-}
-*/
-/*
-body {
-  font-family: Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 30px;
-  background-color: #fef6f9; /* soft background */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+:root{
+  --bg: antiquewhite;
+  --accent: palevioletred;
+  --card: peachpuff;
+  --hover: pink;
+  --button: pink;
+  --button-hover: moccasin;
+  --sidebar-bg: mistyrose;
+  --sidebar-hover: lightpink;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body{
+  background-color: var(--bg);
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
-  color: palevioletred;
+  color: var(--accent);
+  display: flex;
+  min-height: 100vh;
 
 }
 
-#heading{
-  font-family:'Dancing Script', cursive;
-
-  font-size: 2.5rem;
-  font-weight: 600;
-  text-align: center;
-  margin-bottom: 20px;
+.app-container{
+  display: flex;
+  width: 100%;
+  height: 100vh;
 }
 
-body{
-  background-color:antiquewhite;
+.sidebar{
+  width: 220px;
+  background-color: var(--sidebar-bg);
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+  border-right: 2px dashed var(--accent);
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.sidebar li{
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--accent);
+  user-select: none;
+}
+
+.menu{
+  list-style: none;
+  width: 100%;
+}
+
+.menu-item{
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+  font-weight: 600;
+  color: var(--accent);
+  text-align: center;
+  user-select: none;
+}
+
+.menu-item:hover{
+  background-color: var(--sidebar-hover);
+}
+
+
+.main-content{
+  flex: 1;
   padding: 40px;
+  background-color: white;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y:auto;
+}
+
+#section-to-do p{
+  text-align: center;
+  color: var(--accent);
+  margin-bottom: 15px;
+  font-size: 1.1rem;
 }
 
 #input{
@@ -166,14 +102,21 @@ body{
   margin-right: 10px;
   font-size: 1rem;
   margin-bottom: 10px;
+  outline:none;
+  transition:border-color 0.3s ease;
 }
+
+#input:focus{
+  border-color: var(--accent);
+}
+
 
 #button{
   padding: 10px 20px;
-  background-color: pink;
+  background-color: var(--button);
   border: 2px dotted peru;
   border-radius: 8px;
-  margin-right: 10px;
+  margin-left: 10px;
   font-size: 1rem;
   cursor: pointer;
   font-weight: bold;
@@ -181,30 +124,61 @@ body{
 }
 
 #button:hover{
-background-color: moccasin;
+background-color: var(--button-hover);
 }
 
 #list{
   margin-top: 20px;
   padding-left: 20px;
+  width: 80%;
 }
 
 #list li{
   margin-bottom: 10px;
   padding: 6px 10px;
-  background-color: peachpuff;
+  background-color: var(--card);
   border-radius: 6px;
   transition: background-color 0.3s;
+  color: var(--accent);
 }
 
 #list li:hover{
-  background-color: beige;
+  background-color: var(--hover);
 }
 
-p{
-  text-align: center;
-  color:palevioletred;
-  margin-bottom: 15px
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  .app-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    border-right: none;
+    border-bottom: 2px dashed var(--accent);
+    padding: 10px 0;
+  }
+
+  .menu-item {
+    margin-bottom: 0;
+    padding: 10px 12px;
+    flex: 1;
+  }
+
+  .main-content {
+    padding: 20px;
+    width: 100%;
+  }
+
+  #input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }
 
 
