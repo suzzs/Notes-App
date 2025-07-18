@@ -68,3 +68,5 @@ list.removeChild(div);
  toggleButton.addEventListener("click",()=>{
   mainContent.classList.toggle("hidden");
  });
+
+const table = document.getElementById("table");
