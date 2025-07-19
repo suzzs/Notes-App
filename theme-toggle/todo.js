@@ -35,13 +35,25 @@ tasks.forEach(value => {
   div.appendChild(checkbox);
   list.appendChild(div);
 
+  
   checkbox.addEventListener("change", () => {
-    list.removeChild(div);
-    tasks = tasks.filter(t => t !== value);
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-  });
+  if (checkbox.checked) {
+    div.style.textDecoration = "line-through";
+    setTimeout(() => {
+      list.removeChild(div);
+      tasks = tasks.filter(t => t !== value);
+      saveTasks();
+    }, 1000); // wait 1 sec before deleting
+  }
 });
 
+  });
+
+input.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    button.click(); // Simulate button click
+  }
+});
 
  button.addEventListener("click",()=>{
 let value = input.value;
@@ -69,4 +81,3 @@ list.removeChild(div);
   mainContent.classList.toggle("hidden");
  });
 
-const table = document.getElementById("table");
