@@ -42,7 +42,7 @@ input.addEventListener("keypress", (e) => {
 });
 
 search.addEventListener("input",()=>{
-  const query = searchInput.value.toLowerCase();
+  const query = search.value.toLowerCase();
   const allItems = document.querySelectorAll("#list li");
   allItems.forEach(li =>{
     li.style.display = li.textContent.toLowerCase().includes(query) ? "block" : "none";
@@ -83,7 +83,7 @@ menuItems.forEach(item =>{
 
     sections.forEach(section => section.classList.add("hidden"));
 
-    const activeSection = document.getElementById(`section-$(target)`);
+    const activeSection = document.getElementById(`section-${target}`);
     if(activeSection){
       activeSection.classList.remove("hidden");
     }
