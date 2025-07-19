@@ -1,22 +1,8 @@
-/*const input = document.getElementById("input");
-const button = document.getElementById("button");
-
-button.addEventListener("click", () => {
-  let value = input.value;
-  let li = document.createElement("li");
-  let checkbox = document.createElement("input");
-  checkbox.type = "checkbox";
-
-  li.appendChild(document.createTextNode(value + " " ));
-  li.appendChild(checkbox);
-
-  document.getElementById("list").appendChild(li);
-});*/
-
-
-
+const search = document.getElementById("search");
 const input =document.getElementById("input");
 const button  =document.getElementById("button");
+const menuItems = document.querySelectorAll(".menu-item");
+const sections = document.querySelectorAll(".section");
 
 //load tasks from localStorage
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
@@ -55,6 +41,14 @@ input.addEventListener("keypress", (e) => {
   }
 });
 
+search.addEventListener("input",()=>{
+  const query = searchInput.value.toLowerCase();
+  const allItems = document.querySelectorAll("#list li");
+  allItems.forEach(li =>{
+    li.style.display = li.textContent.toLowerCase().includes(query) ? "block" : "none";
+  });
+});
+
  button.addEventListener("click",()=>{
 let value = input.value;
 let div = document.createElement("li");
@@ -81,3 +75,17 @@ list.removeChild(div);
   mainContent.classList.toggle("hidden");
  });
 
+//respective response with respective items
+
+menuItems.forEach(item =>{
+  item.addEventListener("click", ()=>{
+    const target = item.getAttribute("data-section").toLowerCase();
+
+    sections.forEach(section => section.classList.add("hidden"));
+
+    const activeSection = document.getElementById(`section-$(target)`);
+    if(activeSection){
+      activeSection.classList.remove("hidden");
+    }
+  });
+});

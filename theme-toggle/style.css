@@ -191,6 +191,9 @@ background-color: var(--button-hover);
     margin-bottom: 10px;
   }
 }
+.hidden {
+  display: none;
+}
 
 
 
