@@ -70,9 +70,9 @@ list.removeChild(div);
  });
 
  const toggleButton = document.getElementById("toggle-btn")
- const mainContent = document.getElementById("main-content");
+ const sidebar = document.querySelector(".sidebar");
  toggleButton.addEventListener("click",()=>{
-  mainContent.classList.toggle("hidden");
+  sidebar.classList.toggle("hidden");
  });
 
 //respective response with respective items
