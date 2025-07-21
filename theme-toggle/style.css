@@ -13,6 +13,150 @@
   --sidebar-hover: lightpink;
 }
 
+/* FONT (optional, paste this in your HTML <head>) */
+/* <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"> */
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #fff0f5;
+  color: #4a4a4a;
+  margin: 0;
+  padding: 0;
+}
+
+/*  Main Board Container */
+.calendar-board {
+  max-width: 440px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #fce4ec, #f8e0d6); /* pink & mocha gradient */
+  border-radius: 24px;
+  border: 2px solid #f9c5d1;
+  box-shadow: 0 10px 30px rgba(222, 148, 173, 0.3);
+  transition: box-shadow 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.calendar-board:hover {
+  box-shadow: 0 18px 40px rgba(222, 148, 173, 0.5);
+}
+
+/*  Calendar Container */
+.calendar {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.2rem;
+  box-shadow: inset 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Header with Buttons */
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8c8dc;
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  color: white;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.calendar-header button {
+  background-color: #ec699b;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.calendar-header button:hover {
+  background-color: #d64e82;
+}
+
+/* Weekday Labels */
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-top: 1rem;
+  background-color: #fff6f8;
+  padding: 0.5rem 0;
+  border-radius: 10px;
+  font-weight: 600;
+  color: #a65b6b;
+  text-align: center;
+}
+
+/*  Calendar Day Grid */
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+/*  Each Day Box */
+.calendar-days div {
+  background-color: #fff8f9;
+  border: 2px solid #f8c8dc; /* outline */
+  border-radius: 10px;
+  padding: 0.8rem 0;
+  text-align: center;
+  font-weight: 500;
+  color: #5f4b4b;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(248, 200, 220, 0.2);
+  cursor: pointer;
+}
+
+/*  Hover Effect */
+.calendar-days div:hover {
+  background-color: #ffeef2;
+  border-color: #ec699b;
+  color: #c2185b;
+}
+
+/* 🌟 Today Highlight */
+.calendar-days .today {
+  background-color: #f06292;
+  color: white;
+  border-color: #d64e82;
+  font-weight: bold;
+}
+
+/*Empty / Disabled Days */
+.calendar-days .disabled {
+  background: transparent;
+  border: 2px dashed #e5c2cc;
+  color: #c2b2b2;
+  cursor: default;
+}
+
+
+#section-calendar h1 {
+  text-align: center;
+  font-size: 2rem;
+  color: #d64e82;
+  margin-bottom: 1.5rem;
+}
+/*  Outer Section Border (Magical Frame) */
+#section-calendar {
+  border: 6px double #f8c8dc; /* Elegant pink double border */
+  border-radius: 32px;
+  padding: 2rem;
+  margin: 2rem;
+  background: #fff6fa; /* Soft fairy background */
+  box-shadow: 0 0 60px rgba(248, 200, 220, 0.3);
+  transition: box-shadow 0.4s ease;
+}
+
+/*  Hover effect for magic glow */
+#section-calendar:hover {
+  box-shadow: 0 0 80px rgba(248, 200, 220, 0.6);
+}
+
 
 
 
