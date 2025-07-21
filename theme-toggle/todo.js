@@ -3,6 +3,8 @@ const input =document.getElementById("input");
 const button  =document.getElementById("button");
 const menuItems = document.querySelectorAll(".menu-item");
 const sections = document.querySelectorAll(".section");
+const list = document.getElementById("list");
+
 
 //load tasks from localStorage
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
