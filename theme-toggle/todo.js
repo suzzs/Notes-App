@@ -92,58 +92,60 @@ menuItems.forEach(item =>{
   });
 });
 
+//Calendar-Board Section
 
 const monthYear = document.getElementById('month-year');
-const calendarDays = document.getElementById('calendar-days');
+const calendarBoard = document.getElementById('calendar-board');
 const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
 
 let currentDate = new Date();
 
-function renderCalendar() {
-  calendarDays.innerHTML = ''; // Clear existing days
+function renderCalendar(){
+  calendarBoard.innerHTML = ' ';
 
-  let year = currentDate.getFullYear();
-  let month = currentDate.getMonth();
 
-  const monthNames = [
+const year = currentDate.getFullYear();
+const month = currentDate.getMonth();
+
+const monthNames = [
     'January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'
   ];
   monthYear.textContent = `${monthNames[month]} ${year}`;
 
-  const firstDay = new Date(year, month, 1);
-  const lastDay = new Date(year, month + 1, 0);
-  const daysInMonth = lastDay.getDate();
-  const startDay = firstDay.getDay(); // 0 = Sunday, 1 = Monday, etc.
+  const firstDayOfMonth = new Date(year, month, 1);
+  const lastDayOfMonth = new Date(year, month+1, 0);
+  const totalDays =  lastDayOfMonth.getDate();
+  const startDay = firstDayOfMonth.getDay();
 
-  // Add blank days for previous month
-  for (let i = 0; i < startDay; i++) {
-    const emptyBox = document.createElement('div');
-    emptyBox.classList.add('disabled');
-    calendarDays.appendChild(emptyBox);
-  }
+  const today = new Date();
 
-  // Add actual day numbers
-  for (let day = 1; day <= daysInMonth; day++) {
+  for(let i = 0; i<42;i++){
     const dayBox = document.createElement('div');
-    dayBox.textContent = day;
+    const dayNum = i- startDay +1;
 
-    const today = new Date();
-    const isToday =
-      day === today.getDate() &&
-      month === today.getMonth() &&
-      year === today.getFullYear();
+    if (i < startDay || dayNum > totalDays) {
+      dayBox.classList.add('disabled');
+      dayBox.textContent = '';
+    } else {
+      dayBox.textContent = dayNum;
+    
 
-    if (isToday) {
-      dayBox.classList.add('today');
+        const isToday =
+        dayNum === today.getDate() &&
+        month === today.getMonth() &&
+        year === today.getFullYear();
+
+      if (isToday) {
+        dayBox.classList.add('today');
+      }
     }
-
-    calendarDays.appendChild(dayBox);
+    calendarBoard.appendChild(dayBox);
   }
 }
 
-// Navigation buttons
+
 prevBtn.addEventListener('click', () => {
   currentDate.setMonth(currentDate.getMonth() - 1);
   renderCalendar();
@@ -154,5 +156,4 @@ nextBtn.addEventListener('click', () => {
   renderCalendar();
 });
 
-// Initial load
 renderCalendar();
