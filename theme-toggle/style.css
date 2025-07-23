@@ -30,7 +30,7 @@ body{
   padding: 2 rem;
 
 }
-
+/*
 .calendar-container{
   background-color: #ffe6ec;
   padding:1.5rem;
@@ -94,6 +94,109 @@ body{
   background-color: transparent;
   border: none;
   pointer-events: none;
+}
+*/
+
+
+.calendar {
+  background-color: #fff0f6;
+  padding: 1.5rem;
+  border: 5px solid palevioletred; /* thick border */
+  outline: 2px solid #c83f6d;      /* outer highlight */
+  outline-offset: 5px;
+  max-width: 500px;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 2rem;
+}
+
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  border: 2px solid #e5a1b5;
+  padding: 0.5rem;
+  background-color: #ffe2eb;
+}
+
+
+.calendar-header button {
+  background-color: palevioletred;
+  color: white;
+  border: 2px solid #9c2d56;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 #9c2d56;
+  transition: all 0.3s ease;
+}
+
+.calendar-header button:hover {
+  background-color: #9c2d56;
+  transform: translateY(-2px);
+}
+
+
+#month-year {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #a53e65;
+}
+
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-weight: bold;
+  color: #aa4067;
+  background-color: #ffe2eb;
+  padding: 0.5rem 0;
+  border: 2px solid #e5a1b5;
+}
+
+
+.calendar-board {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+
+.calendar-board div {
+  background-color: #ffe6ec;
+  border: 2px solid #e7a5bc;
+  padding: 1rem 0;
+  text-align: center;
+  font-weight: 600;
+  color: #b24867;
+  box-shadow: inset 0 0 4px #f3c5d5;
+  transition: background-color 0.2s ease;
+}
+
+.calendar-board div:hover {
+  background-color: #f8c3d1;
+}
+
+
+.calendar-board div.today {
+  background-color: palevioletred;
+  color: white;
+  font-weight: bold;
+  border: 2px solid white;
+  box-shadow: 0 0 0 3px #9c2d56;
+}
+
+
+.calendar-board div.disabled {
+  background-color: #fff0f6;
+  color: #c8a5b5;
+  border: 2px dashed #f3c5d5;
 }
 
 
