@@ -6,6 +6,7 @@ const sections = document.querySelectorAll(".section");
 const list = document.getElementById("list");
 
 
+
 //load tasks from localStorage
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
@@ -157,3 +158,21 @@ nextBtn.addEventListener('click', () => {
 });
 
 renderCalendar();
+
+
+//Notes section
+
+let notes = [];
+
+function openNoteDialog() {
+  const dialog = document.getElementById('noteDialog');
+  const titleInput = document.getElementById('noteTitle');
+  
+  dialog.showModal();   // open popup
+  titleInput.focus();   // focus on title field
+}
+
+function closeNoteDialog() {
+  const dialog = document.getElementById('noteDialog');
+  dialog.close();       // close popup
+}
