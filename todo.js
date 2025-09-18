@@ -173,12 +173,30 @@ window.addEventListener('DOMContentLoaded', ()=>{
     notes= JSON.parse(storedNotes);
     renderNotes();
   }
-})
+});
 
-function openNoteDialog() {
+function openNoteDialog(note = null) {
   const dialog = document.getElementById('noteDialog');
   const titleInput = document.getElementById('noteTitle');
-  
+  const contentInput = document.getElementById('noteContent');
+  const dialogTitle = document.getElementById('dialogTitle');
+
+  if (note) {
+    // Editing mode
+    editingNoteId = note.id;
+    titleInput.value = note.title;
+    contentInput.value = note.content;
+    dialogTitle.textContent = "Edit Note";
+  } else {
+    // Adding new note
+    editingNoteId = null;
+    titleInput.value = "";
+    contentInput.value = "";
+    dialogTitle.textContent = "Add New Note";
+  }
+
+
+
   dialog.showModal();   // open popup
   titleInput.focus();   // focus on title field
 }
@@ -228,13 +246,20 @@ function renderNotes() {
     const firstLine = note.content.split('\n')[0];
 
     noteCard.innerHTML = `
-      <div class="note-header">
+       <div class="note-header">
         <h2>${note.title}</h2>
-        <button class="delete-btn">Delete</button>
+        <div class="note-actions">
+          <button class="edit-btn">Edit</button>
+          <button class="delete-btn">Delete</button>
+        </div>
       </div>
       <p class="note-preview">${firstLine}</p>
       <p class="note-full" style="display:none;">${note.content}</p>
     `;
+
+    noteCard.querySelector('.edit-btn').onclick= () =>{
+      openNoteDialog(note);
+    };
 
     // Delete note
     const deleteBtn = noteCard.querySelector('.delete-btn');
