@@ -248,13 +248,14 @@ function renderNotes() {
     noteCard.innerHTML = `
        <div class="note-header">
         <h2>${note.title}</h2>
-        <div class="note-actions">
-          <button class="edit-btn">Edit</button>
-          <button class="delete-btn">Delete</button>
-        </div>
-      </div>
+  </div>
+      
       <p class="note-preview">${firstLine}</p>
       <p class="note-full" style="display:none;">${note.content}</p>
+      <div class = "note-actions">
+      <button class="edit-btn">Edit</button>
+          <button class="delete-btn">Delete</button>
+          </div>
     `;
 
     noteCard.querySelector('.edit-btn').onclick= () =>{
@@ -279,3 +280,4 @@ function renderNotes() {
     container.appendChild(noteCard);
   });
 }
+
