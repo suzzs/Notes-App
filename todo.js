@@ -211,24 +211,46 @@ noteForm.reset();
 
 });
 
-function renderNotes(){
+function renderNotes() {
   const container = document.getElementById('notesContainer');
-  container.innerHTML=' ';  //clear existing notes
-if(notes.length ==0){
-  container.innerHTML='<p> No Notes yet. Click the + Add Note to create one.'
-  return; 
+  container.innerHTML = '';  // clear existing notes
+
+  if (notes.length === 0) {
+    container.innerHTML = '<p>No Notes yet. Click the + Add Note to create one.</p>';
+    return;
+  }
+
+  notes.forEach(note => {
+    const noteCard = document.createElement('div');
+    noteCard.className = 'note-card';
+
+    // Only show first line initially
+    const firstLine = note.content.split('\n')[0];
+
+    noteCard.innerHTML = `
+      <div class="note-header">
+        <h2>${note.title}</h2>
+        <button class="delete-btn">Delete</button>
+      </div>
+      <p class="note-preview">${firstLine}</p>
+      <p class="note-full" style="display:none;">${note.content}</p>
+    `;
+
+    // Delete note
+    const deleteBtn = noteCard.querySelector('.delete-btn');
+    deleteBtn.onclick = () => {
+      notes = notes.filter(n => n.id !== note.id);
+      localStorage.setItem('notes', JSON.stringify(notes));
+      renderNotes();
+    };
+
+    // Toggle full note
+    const preview = noteCard.querySelector('.note-preview');
+    preview.onclick = () => {
+      const fullNote = noteCard.querySelector('.note-full');
+      fullNote.style.display = fullNote.style.display === 'none' ? 'block' : 'none';
+    };
+
+    container.appendChild(noteCard);
+  });
 }
-
-notes.forEach(note=>{
-  const noteCard =document.createElement('div');
-  noteCard.className='note-card';
-  noteCard.innerHTML=`
-  <h2>${note.title}</h2>
-  <p>${note.content}</p>
-  `;
-  container.appendChild(noteCard);
-});
-
-
-}
-
